@@ -7,8 +7,13 @@ namespace Calculator
         static void Main(string[] args)
         {
             Summing sum = new Summing();
-            sum.add(1, 2);
+            sum.Calculate(1, 2);
             int total = sum.GetTotal();
+            Console.WriteLine(total);
+
+            Subtracting difference = new Subtracting();
+            difference.Calculate(7, 5);
+            total = difference.GetTotal();
             Console.WriteLine(total);
         }
     }
@@ -17,9 +22,24 @@ namespace Calculator
     {
         private int _total;
 
-        public void add(int first, int second)
+        public void Calculate(int first, int second)
         {
             _total = first + second;
+        }
+
+        public int GetTotal()
+        {
+            return _total;
+        }
+    }
+
+    public class Subtracting : ICalculate
+    {
+        private int _total;
+
+        public void Calculate(int first, int second)
+        {
+            _total = first - second;
         }
 
         public int GetTotal()
